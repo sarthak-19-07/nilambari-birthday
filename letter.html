@@ -1,0 +1,1206 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>A Letter For Nilambari ♡</title>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    rgba(116, 39, 78, .4),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0d070c,
+                    #190b16,
+                    #0d070c
+                );
+
+            color: #fff1ed;
+
+            font-family:
+                "Cormorant Garamond",
+                serif;
+
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           BACKGROUND GLOW
+        ===================================================== */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            background:
+                radial-gradient(
+                    circle at 20% 30%,
+                    rgba(255,160,180,.08),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(255,130,170,.08),
+                    transparent 25%
+                );
+
+            z-index: 0;
+        }
+
+
+        /* =====================================================
+           BACK BUTTON
+        ===================================================== */
+
+        .back-btn {
+
+            position: fixed;
+
+            top: 22px;
+            left: 32px;
+
+            padding:
+                10px 22px;
+
+            border:
+                1px solid
+                rgba(255,190,190,.5);
+
+            border-radius: 30px;
+
+            color: #fff0eb;
+
+            text-decoration: none;
+
+            font-size: 18px;
+
+            background:
+                rgba(255,255,255,.03);
+
+            backdrop-filter:
+                blur(10px);
+
+            transition: .3s;
+
+            z-index: 50;
+        }
+
+
+        .back-btn:hover {
+
+            background:
+                rgba(255,170,190,.15);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .title {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+
+            margin-top: 15vh;
+
+            font-size:
+                clamp(42px, 5vw, 72px);
+
+            font-weight: 500;
+
+            letter-spacing: 2px;
+
+            text-shadow:
+                0 0 25px
+                rgba(255,170,190,.25);
+
+            transition:
+                opacity .6s ease,
+                transform .6s ease;
+        }
+
+
+        .heart {
+            color: #ffb1c0;
+        }
+
+
+        /* =====================================================
+           SCENE
+        ===================================================== */
+
+        .scene {
+
+            position: relative;
+
+            width: 420px;
+            height: 430px;
+
+            margin:
+                30px auto 0;
+
+            perspective:
+                1200px;
+
+            z-index: 3;
+
+            transition:
+                opacity .5s ease;
+        }
+
+
+        /* =====================================================
+           ENVELOPE
+        ===================================================== */
+
+        .envelope {
+
+            position: absolute;
+
+            width: 390px;
+            height: 250px;
+
+            left: 15px;
+            top: 145px;
+
+            background: #c76c84;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,.5),
+                0 0 30px
+                rgba(220,100,140,.12);
+
+            cursor: pointer;
+
+            overflow: visible;
+
+            z-index: 5;
+
+            transition:
+                transform .5s ease;
+        }
+
+
+        .envelope:hover {
+
+            transform:
+                translateY(-5px);
+        }
+
+
+        /* =====================================================
+           ENVELOPE BOTTOM FOLD
+        ===================================================== */
+
+        .envelope::before {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                195px solid transparent;
+
+            border-right:
+                195px solid transparent;
+
+            border-bottom:
+                125px solid #d9879a;
+
+            z-index: 6;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           ENVELOPE SIDE FOLDS
+        ===================================================== */
+
+        .envelope::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    transparent 49%,
+                    rgba(255,255,255,.12) 50%,
+                    transparent 51%
+                ),
+
+                linear-gradient(
+                    215deg,
+                    transparent 49%,
+                    rgba(255,255,255,.12) 50%,
+                    transparent 51%
+                );
+
+            z-index: 7;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           FLAP
+        ===================================================== */
+
+        .flap {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 0;
+            height: 0;
+
+            border-left:
+                195px solid transparent;
+
+            border-right:
+                195px solid transparent;
+
+            border-top:
+                135px solid #efa3b2;
+
+            transform-origin:
+                top center;
+
+            transition:
+                transform .9s
+                cubic-bezier(.4,0,.2,1);
+
+            z-index: 10;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           LETTER BEHIND ENVELOPE
+        ===================================================== */
+
+        .letter {
+
+            position: absolute;
+
+            width: 340px;
+            height: 350px;
+
+            left: 40px;
+            top: 95px;
+
+            background: #fff8ef;
+
+            color: #42222b;
+
+            padding:
+                38px 35px;
+
+            border-radius: 6px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.45);
+
+            z-index: 2;
+
+            overflow: hidden;
+
+            transform:
+                translateY(0)
+                scale(.94);
+
+            opacity: .95;
+
+            transition:
+                transform 1s
+                cubic-bezier(.22,.61,.36,1),
+                opacity .5s ease,
+                box-shadow .8s ease;
+        }
+
+
+        /* =====================================================
+           LETTER CONTENT
+        ===================================================== */
+
+        .letter-content {
+
+            height: 100%;
+
+            overflow-y: auto;
+
+            scrollbar-width: none;
+        }
+
+
+        .letter-content::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .letter h2 {
+
+            margin:
+                0 0 20px;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 36px;
+
+            color: #b55c78;
+
+            text-align: center;
+        }
+
+
+        .letter p {
+
+            font-size: 19px;
+
+            line-height: 1.55;
+
+            margin:
+                0 0 15px;
+        }
+
+
+        .signature {
+
+            margin-top: 20px;
+
+            text-align: right;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 27px;
+
+            color: #b55c78;
+        }
+
+
+        /* =====================================================
+           OPEN ENVELOPE
+        ===================================================== */
+
+        .scene.open .flap {
+
+            transform:
+                rotateX(180deg);
+        }
+
+
+        .scene.open .letter {
+
+            transform:
+                translateY(-145px)
+                scale(1.03);
+
+            box-shadow:
+                0 30px 60px
+                rgba(0,0,0,.5);
+        }
+
+
+        /* =====================================================
+           INSTRUCTION
+        ===================================================== */
+
+        .instruction {
+
+            position: relative;
+
+            z-index: 5;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            font-size: 19px;
+
+            font-style: italic;
+
+            color:
+                rgba(255,235,235,.75);
+
+            animation:
+                breathe 2s infinite;
+
+            transition:
+                opacity .4s ease;
+        }
+
+
+        @keyframes breathe {
+
+            0%,100% {
+                opacity: .6;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+
+        /* =====================================================
+           POPUP BACKDROP
+        ===================================================== */
+
+        .letter-popup {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            background:
+                rgba(5,2,6,.72);
+
+            backdrop-filter:
+                blur(0px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            z-index: 100;
+
+            transition:
+                opacity .45s ease,
+                visibility .45s ease,
+                backdrop-filter .6s ease;
+        }
+
+
+        .letter-popup.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+            backdrop-filter:
+                blur(10px);
+        }
+
+
+        /* =====================================================
+           POPUP LETTER
+        ===================================================== */
+
+        .popup-paper {
+
+            position: relative;
+
+            width:
+                min(700px, 92vw);
+
+            max-height:
+                82vh;
+
+            padding:
+                55px 60px 50px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffaf2,
+                    #fff4e9
+                );
+
+            color: #42222b;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 40px 100px
+                rgba(0,0,0,.65),
+                0 0 60px
+                rgba(255,170,190,.15);
+
+            overflow-y: auto;
+
+            transform:
+                translateY(80px)
+                scale(.65)
+                rotateX(18deg);
+
+            opacity: 0;
+
+            transition:
+                transform .75s
+                cubic-bezier(.16,1,.3,1),
+                opacity .45s ease;
+
+            scrollbar-width: none;
+        }
+
+
+        .popup-paper::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        .letter-popup.show .popup-paper {
+
+            transform:
+                translateY(0)
+                scale(1)
+                rotateX(0);
+
+            opacity: 1;
+
+            animation:
+                paperFloat 4s
+                ease-in-out
+                1s infinite;
+        }
+
+
+        @keyframes paperFloat {
+
+            0%,100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-5px);
+            }
+        }
+
+
+        /* =====================================================
+           PAPER DECORATION
+        ===================================================== */
+
+        .popup-paper::before {
+
+            content: "♡";
+
+            position: absolute;
+
+            top: 15px;
+            left: 20px;
+
+            font-size: 28px;
+
+            color: #d9879a;
+
+            opacity: .7;
+        }
+
+
+        .popup-paper::after {
+
+            content: "♡";
+
+            position: absolute;
+
+            bottom: 15px;
+            right: 20px;
+
+            font-size: 28px;
+
+            color: #d9879a;
+
+            opacity: .7;
+        }
+
+
+        .popup-paper h2 {
+
+            margin:
+                0 0 25px;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size:
+                clamp(40px, 7vw, 58px);
+
+            font-weight: normal;
+
+            color: #b55c78;
+
+            text-align: center;
+        }
+
+
+        .popup-paper p {
+
+            font-size:
+                clamp(18px, 2vw, 22px);
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+        }
+
+
+        .popup-signature {
+
+            margin-top: 25px;
+
+            text-align: right;
+
+            font-family:
+                "Great Vibes",
+                cursive;
+
+            font-size: 34px;
+
+            color: #b55c78;
+        }
+
+
+        /* =====================================================
+           CLOSE BUTTON
+        ===================================================== */
+
+        .close-letter {
+
+            position: absolute;
+
+            top: 15px;
+            right: 18px;
+
+            width: 38px;
+            height: 38px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(181,92,120,.1);
+
+            color: #a84e6b;
+
+            font-size: 24px;
+
+            cursor: pointer;
+
+            transition: .3s;
+
+            z-index: 5;
+        }
+
+
+        .close-letter:hover {
+
+            background:
+                rgba(181,92,120,.2);
+
+            transform:
+                rotate(90deg);
+        }
+
+
+        /* =====================================================
+           POPUP CLOSE TEXT
+        ===================================================== */
+
+        .close-text {
+
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #b55c78;
+
+            font-size: 16px;
+
+            font-style: italic;
+
+            opacity: .65;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media(max-width: 600px) {
+
+            body {
+                overflow: hidden;
+            }
+
+
+            .back-btn {
+
+                left: 18px;
+                top: 18px;
+
+                padding:
+                    8px 15px;
+            }
+
+
+            .title {
+
+                margin-top: 14vh;
+
+                font-size: 42px;
+            }
+
+
+            .scene {
+
+                transform:
+                    scale(.78);
+
+                transform-origin:
+                    top center;
+
+                margin-top: 20px;
+            }
+
+
+            .instruction {
+
+                margin-top: 0;
+
+                font-size: 17px;
+            }
+
+
+            .popup-paper {
+
+                width: 94vw;
+
+                max-height: 82vh;
+
+                padding:
+                    45px 25px 35px;
+
+                border-radius: 7px;
+            }
+
+
+            .popup-paper p {
+
+                font-size: 18px;
+
+                line-height: 1.6;
+            }
+
+
+            .popup-signature {
+
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACK BUTTON
+    ===================================================== -->
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Back
+    </a>
+
+
+    <!-- =====================================================
+         TITLE
+    ===================================================== -->
+
+    <h1 class="title">
+
+        A Letter For You
+        <span class="heart">♡</span>
+
+    </h1>
+
+
+    <!-- =====================================================
+         ENVELOPE SCENE
+    ===================================================== -->
+
+    <div
+        class="scene"
+        id="letterScene"
+    >
+
+
+        <!-- LETTER BEHIND ENVELOPE -->
+
+        <div class="letter">
+
+            <div class="letter-content">
+
+                <h2>
+                    Dear Nilambari,
+                </h2>
+
+                <p>
+                    On your special day, I just want to
+                    wish you endless happiness, beautiful
+                    moments, and countless reasons to smile.
+                </p>
+
+                <p>
+                    May this new year of your life be filled
+                    with wonderful memories, exciting
+                    adventures, and dreams coming true.
+                </p>
+
+                <p>
+                    Keep smiling, keep shining, and always
+                    stay the amazing person you are.
+                </p>
+
+                <p>
+                    Here's to another beautiful chapter
+                    of your life. May it be your best one yet. ♡
+                </p>
+
+                <div class="signature">
+                    Happy Birthday! ♡
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ENVELOPE -->
+
+        <div
+            class="envelope"
+            id="envelope"
+        >
+
+            <div class="flap"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         INSTRUCTION
+    ===================================================== -->
+
+    <div
+        class="instruction"
+        id="instruction"
+    >
+        💌 Click the envelope to open your letter
+    </div>
+
+
+    <!-- =====================================================
+         POPUP
+    ===================================================== -->
+
+    <div
+        class="letter-popup"
+        id="letterPopup"
+    >
+
+        <div
+            class="popup-paper"
+            id="popupPaper"
+        >
+
+            <button
+                class="close-letter"
+                id="closeLetter"
+                aria-label="Close letter"
+            >
+                ×
+            </button>
+
+
+            <h2>
+                Dear Nilambari,
+            </h2>
+
+
+            <p>
+                On your special day, I just want to wish you
+                endless happiness, beautiful moments, and
+                countless reasons to smile.
+            </p>
+
+
+            <p>
+                May this new year of your life be filled with
+                wonderful memories, exciting adventures,
+                laughter, and dreams coming true.
+            </p>
+
+
+            <p>
+                Keep smiling, keep shining, and always stay
+                the amazing person you are.
+            </p>
+
+
+            <p>
+                Here's to another beautiful chapter of your
+                life. May it be your best one yet. ♡
+            </p>
+
+
+            <div class="popup-signature">
+                Happy Birthday! ♡
+            </div>
+
+
+            <span class="close-text">
+                Made with lots of love ♡
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        const scene =
+            document.getElementById("letterScene");
+
+        const envelope =
+            document.getElementById("envelope");
+
+        const instruction =
+            document.getElementById("instruction");
+
+        const popup =
+            document.getElementById("letterPopup");
+
+        const closeLetter =
+            document.getElementById("closeLetter");
+
+
+        let isOpen = false;
+
+
+        /* =====================================================
+           OPEN LETTER
+        ===================================================== */
+
+        envelope.addEventListener("click", () => {
+
+            if (isOpen) return;
+
+            isOpen = true;
+
+            scene.classList.add("open");
+
+
+            instruction.style.opacity = "0";
+
+
+            /*
+                Wait for the envelope flap to open
+                before launching the popup.
+            */
+
+            setTimeout(() => {
+
+                popup.classList.add("show");
+
+            }, 750);
+
+        });
+
+
+        /* =====================================================
+           CLOSE LETTER
+        ===================================================== */
+
+        function closePopup() {
+
+            popup.classList.remove("show");
+
+            setTimeout(() => {
+
+                scene.classList.remove("open");
+
+                instruction.innerHTML =
+                    "💌 Click the envelope to open your letter";
+
+                instruction.style.opacity = "1";
+
+                isOpen = false;
+
+            }, 450);
+
+        }
+
+
+        closeLetter.addEventListener(
+            "click",
+            closePopup
+        );
+
+
+        /* =====================================================
+           CLICK OUTSIDE LETTER
+        ===================================================== */
+
+        popup.addEventListener(
+            "click",
+            (event) => {
+
+                if (
+                    event.target === popup
+                ) {
+
+                    closePopup();
+
+                }
+
+            }
+        );
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+
+                if (
+                    event.key === "Escape" &&
+                    isOpen
+                ) {
+
+                    closePopup();
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```

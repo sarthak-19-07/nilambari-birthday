@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprises for Nilambari ♡</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Georgia, serif;
+            background:
+                radial-gradient(circle at 50% 30%, #54263f 0%, #1a0c16 45%, #08050a 100%);
+            color: #ffe5df;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                radial-gradient(circle, rgba(255,180,190,.7) 1px, transparent 2px);
+            background-size: 90px 90px;
+            animation: stars 12s linear infinite;
+        }
+
+        @keyframes stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-90px); }
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+            color: #ffd9d1;
+            text-decoration: none;
+            border: 1px solid rgba(255,190,180,.4);
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .back:hover {
+            background: rgba(255,170,160,.15);
+            transform: translateX(-4px);
+        }
+
+        h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            font-weight: normal;
+            letter-spacing: 5px;
+            margin-top: 30px;
+        }
+
+        .subtitle {
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 20px;
+            opacity: .8;
+        }
+
+        .surprise-grid {
+            width: min(900px, 100%);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 70px;
+        }
+
+        .surprise-card {
+            min-height: 300px;
+            border: 1px solid rgba(255,180,180,.35);
+            border-radius: 25px;
+            background: rgba(255,255,255,.04);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #ffe7e2;
+            transition: .4s;
+            box-shadow: 0 20px 50px rgba(0,0,0,.25);
+        }
+
+        .surprise-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #ffaaa0;
+            box-shadow: 0 25px 70px rgba(255,100,120,.18);
+        }
+
+        .icon {
+            font-size: 100px;
+            margin-bottom: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .surprise-card h2 {
+            letter-spacing: 3px;
+            font-weight: normal;
+        }
+
+        .surprise-card p {
+            margin-top: 10px;
+            opacity: .65;
+        }
+
+        @media(max-width:650px) {
+            .surprise-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <a href="index.html" class="back">← Back</a>
+
+    <h1>A Little Surprise ♡</h1>
+
+    <p class="subtitle">
+        Something special is waiting for you, Nilambari...
+    </p>
+
+    <div class="surprise-grid">
+
+        <a href="cake.html" class="surprise-card">
+            <div class="icon">🎂</div>
+            <h2>A Birthday Cake</h2>
+            <p>Click to make a wish</p>
+        </a>
+
+        <a href="flowers.html" class="surprise-card">
+            <div class="icon">💐</div>
+            <h2>A Bouquet</h2>
+            <p>Flowers, just for you</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
