@@ -1,0 +1,569 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Birthday Cake for Nilambari ♡</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow: hidden;
+            font-family: Georgia, serif;
+            color: #ffe8e3;
+
+            background:
+                radial-gradient(
+                    circle at 50% 35%,
+                    #5a2944 0%,
+                    #21101b 45%,
+                    #080509 100%
+                );
+        }
+
+        /* STARS */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+
+            background-image:
+                radial-gradient(
+                    circle,
+                    rgba(255, 190, 200, .7) 1px,
+                    transparent 2px
+                );
+
+            background-size: 90px 90px;
+
+            animation: stars 12s linear infinite;
+        }
+
+        @keyframes stars {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-90px);
+            }
+        }
+
+        /* PAGE */
+
+        .page {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            z-index: 2;
+
+            padding: 30px 20px;
+        }
+
+        /* BACK BUTTON */
+
+        .back {
+            position: absolute;
+            top: 25px;
+            left: 30px;
+
+            color: #ffd9d1;
+            text-decoration: none;
+
+            border: 1px solid rgba(255,190,180,.4);
+
+            padding: 10px 20px;
+
+            border-radius: 30px;
+
+            transition: .3s;
+        }
+
+        .back:hover {
+            background: rgba(255,170,160,.15);
+            transform: translateX(-4px);
+        }
+
+        /* TITLE */
+
+        h1 {
+            font-size: clamp(38px, 7vw, 70px);
+            font-weight: normal;
+            letter-spacing: 4px;
+
+            text-align: center;
+
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 19px;
+            font-style: italic;
+            opacity: .75;
+
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* CAKE AREA */
+
+        .cake-container {
+            position: relative;
+
+            width: 330px;
+            height: 300px;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            cursor: pointer;
+        }
+
+        /* PLATE */
+
+        .plate {
+            position: absolute;
+            bottom: 10px;
+
+            width: 300px;
+            height: 35px;
+
+            background: #e8b8b2;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.5);
+        }
+
+        /* CAKE */
+
+        .cake {
+            position: absolute;
+            bottom: 40px;
+
+            width: 230px;
+            height: 145px;
+
+            border-radius: 15px 15px 25px 25px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    #ffd4cd 0%,
+                    #efaaa7 50%,
+                    #d9878d 100%
+                );
+
+            box-shadow:
+                inset 0 -10px 0 rgba(100,30,50,.15),
+                0 15px 35px rgba(0,0,0,.35);
+
+            animation: cakeFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes cakeFloat {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ICING */
+
+        .icing {
+            position: absolute;
+            top: -18px;
+            left: 0;
+
+            width: 100%;
+            height: 45px;
+
+            background: #fff0eb;
+
+            border-radius: 50%;
+        }
+
+        .icing::after {
+            content: "";
+
+            position: absolute;
+
+            left: 20px;
+            right: 20px;
+            bottom: -15px;
+
+            height: 25px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 0,
+                    #fff0eb 0 13px,
+                    transparent 14px
+                ),
+                radial-gradient(
+                    circle at 50% 0,
+                    #fff0eb 0 13px,
+                    transparent 14px
+                ),
+                radial-gradient(
+                    circle at 80% 0,
+                    #fff0eb 0 13px,
+                    transparent 14px
+                );
+        }
+
+        /* CAKE DECORATION */
+
+        .cherry {
+            position: absolute;
+
+            width: 15px;
+            height: 15px;
+
+            border-radius: 50%;
+
+            background: #a82f4b;
+
+            top: 20px;
+        }
+
+        .c1 { left: 35px; }
+        .c2 { left: 105px; }
+        .c3 { right: 40px; }
+
+        /* CANDLES */
+
+        .candles {
+            position: absolute;
+
+            top: -90px;
+
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .candle {
+            width: 18px;
+            height: 65px;
+
+            border-radius: 5px;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #f7c6c7 0 8px,
+                    #fff0ed 8px 16px
+                );
+
+            position: relative;
+        }
+
+        /* FLAMES */
+
+        .flame {
+            position: absolute;
+
+            top: -32px;
+            left: 50%;
+
+            width: 18px;
+            height: 28px;
+
+            transform: translateX(-50%);
+
+            background: #ffd56a;
+
+            border-radius:
+                50% 50% 50% 50% /
+                65% 65% 35% 35%;
+
+            box-shadow:
+                0 0 20px #ffbd63,
+                0 0 35px rgba(255,150,70,.7);
+
+            animation: flame 0.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes flame {
+            from {
+                transform:
+                    translateX(-50%)
+                    scale(.9)
+                    rotate(-3deg);
+            }
+
+            to {
+                transform:
+                    translateX(-50%)
+                    scale(1.1)
+                    rotate(3deg);
+            }
+        }
+
+        /* MESSAGE */
+
+        .wish {
+            margin-top: 25px;
+
+            text-align: center;
+
+            max-width: 600px;
+
+            line-height: 1.7;
+
+            font-size: 18px;
+
+            opacity: .85;
+        }
+
+        .instruction {
+            margin-top: 20px;
+
+            color: #ffc8c0;
+
+            font-size: 15px;
+
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            50% {
+                opacity: .4;
+            }
+        }
+
+        /* HIDDEN WISH */
+
+        .secret {
+            margin-top: 15px;
+
+            font-size: 24px;
+
+            color: #ffd0c8;
+
+            opacity: 0;
+
+            transform: translateY(15px);
+
+            transition: .7s;
+        }
+
+        .secret.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            .back {
+                top: 15px;
+                left: 15px;
+                padding: 8px 15px;
+            }
+
+            h1 {
+                margin-top: 40px;
+            }
+
+            .cake-container {
+                transform: scale(.82);
+            }
+
+            .wish {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <a href="surprises.html" class="back">
+        ← Back
+    </a>
+
+    <h1>A Cake Just For You ♡</h1>
+
+    <p class="subtitle">
+        Close your eyes, make a wish... ✨
+    </p>
+
+    <div class="cake-container" id="cake">
+
+        <div class="plate"></div>
+
+        <div class="cake">
+
+            <div class="icing"></div>
+
+            <div class="cherry c1"></div>
+            <div class="cherry c2"></div>
+            <div class="cherry c3"></div>
+
+            <div class="candles">
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle">
+                    <div class="flame"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="wish">
+        May this year bring you endless happiness,
+        beautiful memories and everything your heart wishes for. ♡
+    </p>
+
+    <p class="instruction">
+        ✨ Click the cake to make your wish ✨
+    </p>
+
+    <div class="secret" id="secret">
+        Happy Birthday, Nilambari! 🎂💗
+    </div>
+
+</div>
+
+<script>
+
+const cake = document.getElementById("cake");
+const secret = document.getElementById("secret");
+
+cake.addEventListener("click", () => {
+
+    const flames =
+        document.querySelectorAll(".flame");
+
+    flames.forEach(flame => {
+
+        flame.style.display = "none";
+
+    });
+
+    secret.classList.add("show");
+
+    createConfetti();
+
+});
+
+function createConfetti() {
+
+    const symbols = [
+        "♡",
+        "✦",
+        "✧",
+        "✨",
+        "•"
+    ];
+
+    for(let i = 0; i < 45; i++) {
+
+        const particle =
+            document.createElement("span");
+
+        particle.innerText =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        particle.style.position = "fixed";
+
+        particle.style.left = "50%";
+        particle.style.top = "45%";
+
+        particle.style.zIndex = "100";
+
+        particle.style.pointerEvents = "none";
+
+        particle.style.fontSize =
+            (12 + Math.random() * 20) + "px";
+
+        particle.style.color = "#ffd0c9";
+
+        document.body.appendChild(particle);
+
+        const x =
+            (Math.random() * 2 - 1) * 500;
+
+        const y =
+            (Math.random() * 2 - 1) * 400;
+
+        particle.animate(
+            [
+                {
+                    transform:
+                        "translate(-50%,-50%) scale(.2)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                        `translate(
+                            calc(-50% + ${x}px),
+                            calc(-50% + ${y}px)
+                        ) scale(1.2)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration:
+                    1200 +
+                    Math.random() * 1000,
+
+                easing:
+                    "cubic-bezier(.2,.8,.2,1)"
+            }
+        );
+
+        setTimeout(
+            () => particle.remove(),
+            2300
+        );
+    }
+}
+
+</script>
+
+</body>
+</html>
+```
